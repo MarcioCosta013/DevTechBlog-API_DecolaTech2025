@@ -1,0 +1,35 @@
+services:
+  app:
+    build:
+      context: .
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/dev-tech-blog
+      DB_USER: dev-tech-blog
+      DB_PASSWORD: dev-tech-blog
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    volumes:
+      - .:/dev-tech-blog:z
+    depends_on:
+      - db
+    networks:
+      - dev-tech-blog-net
+  db:
+    image: postgres:17.2
+    environment:
+      POSTGRES_USER: dev-tech-blog
+      POSTGRES_PASSWORD: dev-tech-blog
+      POSTGRES_DB: dev-tech-blog
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "5432:5432"
+    networks:
+      - dev-tech-blog-net
+networks:
+  dev-tech-blog-net:
+    name: dev-tech-blog-net
+    external: true
+volumes:
+  db:
