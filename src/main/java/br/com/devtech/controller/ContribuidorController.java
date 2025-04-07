@@ -15,15 +15,16 @@ public class ContribuidorController {
 
     @PostMapping(value = "/create")
     public ResponseEntity<ContribuidorDTO> create(@RequestBody ContribuidorDTO dto){
+
         dto = contribuidorService.create(dto);
         return ResponseEntity.ok().body(dto);
+
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<ContribuidorDTO> buscaProduto(@PathVariable Long id) {
+    public ResponseEntity<ContribuidorDTO> buscaContribuidor (@PathVariable Long id) {
 
         ContribuidorDTO pedido = contribuidorService.findById(id);
-
         return ResponseEntity.ok().body(pedido);
 
     }

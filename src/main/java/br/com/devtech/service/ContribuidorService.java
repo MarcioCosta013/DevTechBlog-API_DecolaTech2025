@@ -41,7 +41,6 @@ public class ContribuidorService {
 
     private ContribuidorDTO respostaDTO (ContribuidorEntity salvoContribuidor){
         return new ContribuidorDTO(
-                salvoContribuidor.getId(),
                 salvoContribuidor.getNome(),
                 salvoContribuidor.getEmail(),
                 salvoContribuidor.getLinkGithub()

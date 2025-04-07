@@ -13,7 +13,8 @@ services:
     volumes:
       - .:/dev-tech-blog:z
     depends_on:
-      - db
+      db:
+        condition: service_healthy #faz com que o app só tente subir depois que o banco estiver 100% pronto.
     networks:
       - dev-tech-blog-net
   db:
@@ -27,6 +28,11 @@ services:
       - "5432:5432"
     networks:
       - dev-tech-blog-net
+    healthcheck: #verifica a cada 5 segundos se o Postgres está aceitando conexões.
+      test: [ "CMD-SHELL", "pg_isready -U dev-tech-blog" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 networks:
   dev-tech-blog-net:
     name: dev-tech-blog-net
