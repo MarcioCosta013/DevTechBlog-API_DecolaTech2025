@@ -1,6 +1,7 @@
-package br.com.devtech.dtos.request;
+package br.com.devtech.dtos;
 
-public record ContribuidorRequestDTO(
+public record ContribuidorDTO(
+        Long id,
         String nome,
         String email,
         String github

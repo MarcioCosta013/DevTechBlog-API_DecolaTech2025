@@ -1,6 +1,6 @@
-package br.com.devtech.dtos.request;
+package br.com.devtech.dtos;
 
-public record SitesResquestDTO(
+public record SitesDTO(
         String titulo,
         String descricao,
         String linkSite
