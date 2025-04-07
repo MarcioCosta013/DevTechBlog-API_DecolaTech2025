@@ -1,12 +1,23 @@
-FROM gradle:8.11.1-jdk-21-and-23
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 LABEL authors="Marcio Costa"
 
-RUN apt-get update && apt-get install -qq -y --no-install-recommends
-
-ENV INSTALL_PATH /dev-tech-blog
-
-RUN mkdir $INSTALL_PATH
-
-WORKDIR $INSTALL_PATH
+WORKDIR /app
 
 COPY . .
+
+# Compila o projeto e empacota em um JAR
+RUN mvn clean package -DskipTests
+
+# Etapa final: roda o app
+FROM eclipse-temurin:21-jdk
+
+WORKDIR /app
+
+# Copia o JAR gerado na etapa de build
+COPY --from=build /app/target/*.jar app.jar
+
+# Expõe a porta (ajuste conforme seu app)
+EXPOSE 8080
+
+# Comando para iniciar a aplicação
+ENTRYPOINT ["java", "-jar", "app.jar"]

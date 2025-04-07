@@ -30,6 +30,6 @@ services:
 networks:
   dev-tech-blog-net:
     name: dev-tech-blog-net
-    external: true
+    external: false
 volumes:
   db:

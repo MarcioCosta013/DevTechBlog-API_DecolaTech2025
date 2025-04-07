@@ -7,4 +7,11 @@ spring:
         password: ${DB_PASSWORD}
     jpa:
         hibernate:
-            ddl-auto: validate
+            ddl-auto: validate # ou none (porque o Flyway cuida do schema)
+        show-sql: true
+    flyway:
+        enabled: true
+        locations: classpath:db/migration
+        baseline-on-migrate: true
+        user: dev-tech-blog
+        password: dev-tech-blog
