@@ -27,13 +27,13 @@ public class SitesEntity {
     @Column(nullable = false, name= "descricao")
     private String descricao;
 
-    @Column(nullable = false, name= "linkSite")
+    @Column(nullable = false, name= "link_site")
     private String linkSite;
 
     @Column(nullable = false, name= "stack" )
     private String stack;
 
     @ManyToOne
-    @Column(nullable = false, name= "contribuidor_id")
+    @JoinColumn(nullable = false, name= "contribuidor_id")
     private ContribuidorEntity contribuidor ;
 }

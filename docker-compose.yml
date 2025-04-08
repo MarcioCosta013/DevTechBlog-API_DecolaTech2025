@@ -3,9 +3,9 @@ services:
     build:
       context: .
     environment:
-      DB_URL: jdbc:postgresql://db:5432/dev-tech-blog
-      DB_USER: dev-tech-blog
-      DB_PASSWORD: dev-tech-blog
+      DB_URL: ${DB_URL}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
       SPRING_PROFILES_ACTIVE: dev
     ports:
       - "8080:8080"
@@ -20,10 +20,9 @@ services:
   db:
     image: postgres:17.2
     environment:
+      POSTGRES_DB: dev-tech-blog
       POSTGRES_USER: dev-tech-blog
       POSTGRES_PASSWORD: dev-tech-blog
-      POSTGRES_DB: dev-tech-blog
-      SPRING_PROFILES_ACTIVE: dev
     ports:
       - "5432:5432"
     networks:
