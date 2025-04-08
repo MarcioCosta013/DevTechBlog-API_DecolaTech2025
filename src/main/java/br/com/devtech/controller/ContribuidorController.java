@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/contribuidor")
 @AllArgsConstructor
@@ -21,12 +23,25 @@ public class ContribuidorController {
 
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/buscar/{id}")
     public ResponseEntity<ContribuidorDTO> buscaContribuidor (@PathVariable Long id) {
 
         ContribuidorDTO pedido = contribuidorService.findById(id);
         return ResponseEntity.ok().body(pedido);
 
+    }
+
+    @GetMapping(value = "/buscartodos")
+    public ResponseEntity<List<ContribuidorDTO>> buscaTodosContribuidor () {
+
+        List<ContribuidorDTO> pedido = contribuidorService.findAll();
+        return ResponseEntity.ok().body(pedido);
+
+    }
+
+    @DeleteMapping(value = "/apagar")
+    public ResponseEntity<ContribuidorDTO> apagar (Long id){
+        return ResponseEntity.ok(contribuidorService.delete(id));
     }
 
 }
