@@ -31,7 +31,8 @@ public class ContribuidorService {
     }
 
     public ContribuidorDTO update (Long id, ContribuidorDTO dtoRequest ){
-        ContribuidorEntity contribuidor = contribuidorRepository.getById(id);
+        ContribuidorEntity contribuidor = contribuidorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Contribuidor não encontrado"));
 
         contribuidor.setNome(dtoRequest.nome());
         contribuidor.setEmail(dtoRequest.email());
@@ -47,7 +48,8 @@ public class ContribuidorService {
     }
 
     public ContribuidorDTO findById (Long id){
-        ContribuidorEntity contribuidor = contribuidorRepository.getById(id);
+        ContribuidorEntity contribuidor = contribuidorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Contribuidor não encontrado"));
 
         return new ContribuidorDTO(
                 contribuidor.getId(),
@@ -76,7 +78,9 @@ public class ContribuidorService {
     }
 
     public ContribuidorDTO delete (Long id){
-        ContribuidorEntity contribuidor = contribuidorRepository.getById(id);
+        ContribuidorEntity contribuidor = contribuidorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Contribuidor não encontrado"));
+
         contribuidorRepository.delete(contribuidor);
         return new ContribuidorDTO(
                 contribuidor.getId(),

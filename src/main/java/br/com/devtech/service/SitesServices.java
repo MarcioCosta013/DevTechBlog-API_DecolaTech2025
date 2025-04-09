@@ -65,7 +65,8 @@ public class SitesServices {
     }
 
     public SitesDTO findByIdSite (Long id){
-        SitesEntity site = sitesRepository.getById(id);
+        SitesEntity site = sitesRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Site não encontrado"));
 
         return new SitesDTO(
                 site.getTitulo(),
@@ -91,7 +92,8 @@ public class SitesServices {
     }
 
     public SitesDTO deleteSite(Long id){
-        SitesEntity site = sitesRepository.getById(id);
+        SitesEntity site = sitesRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Site não encontrado"));
         sitesRepository.delete(site);
 
         return new SitesDTO(
