@@ -39,8 +39,15 @@ public class ContribuidorController {
 
     }
 
-    @DeleteMapping(value = "/apagar")
-    public ResponseEntity<ContribuidorDTO> apagar (Long id){
+    @PutMapping(value = "/alterar/{id}")
+    public ResponseEntity<ContribuidorDTO> alterar (@PathVariable Long id, @RequestBody ContribuidorDTO dtoContribuidor){
+        ContribuidorDTO dto = contribuidorService.update(id, dtoContribuidor);
+
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @DeleteMapping(value = "/apagar/{id}")
+    public ResponseEntity<ContribuidorDTO> apagar (@PathVariable Long id){
         return ResponseEntity.ok(contribuidorService.delete(id));
     }
 

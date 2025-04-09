@@ -22,7 +22,12 @@ public class ContribuidorService {
         contribuidor.setLinkGithub(dtoRequest.github());
 
         ContribuidorEntity salvo = contribuidorRepository.save(contribuidor);
-        return respostaDTO(salvo);
+        return new ContribuidorDTO(
+                salvo.getId(),
+                salvo.getNome(),
+                salvo.getEmail(),
+                salvo.getLinkGithub()
+        );
     }
 
     public ContribuidorDTO update (Long id, ContribuidorDTO dtoRequest ){
@@ -33,13 +38,23 @@ public class ContribuidorService {
         contribuidor.setLinkGithub(dtoRequest.github());
 
         ContribuidorEntity salvo = contribuidorRepository.save(contribuidor);
-        return respostaDTO(salvo);
+        return new ContribuidorDTO(
+                salvo.getId(),
+                salvo.getNome(),
+                salvo.getEmail(),
+                salvo.getLinkGithub()
+        );
     }
 
     public ContribuidorDTO findById (Long id){
         ContribuidorEntity contribuidor = contribuidorRepository.getById(id);
-        ContribuidorEntity salvo = contribuidorRepository.save(contribuidor);
-        return respostaDTO(salvo);
+
+        return new ContribuidorDTO(
+                contribuidor.getId(),
+                contribuidor.getNome(),
+                contribuidor.getEmail(),
+                contribuidor.getLinkGithub()
+        );
     }
 
     public List<ContribuidorDTO> findAll(){
@@ -50,26 +65,25 @@ public class ContribuidorService {
                         /* Percorre cada ContribuidorEntity da lista e transforma ela
                          * em um novo objeto ContribuidorDTO,
                          * 'new ContribuidorDTO()' cria um novo DTO com os dados da entidade*/
+                        valor.getId(),
                         valor.getNome(),
                         valor.getEmail(),
                         valor.getLinkGithub()
                 ))
                 .collect(Collectors.toList()); /* Essa parte transforma o Stream de DTOs em uma List<ContribuidorDTO>.
                                                 * Ou seja, depois de mapear cada entidade, juntamos todos os resultados
-                                                * numa lista final.*/
+                                                * em uma lista final.*/
     }
 
     public ContribuidorDTO delete (Long id){
         ContribuidorEntity contribuidor = contribuidorRepository.getById(id);
         contribuidorRepository.delete(contribuidor);
-        return respostaDTO(contribuidor);
-    }
-
-    private ContribuidorDTO respostaDTO (ContribuidorEntity salvoContribuidor){
         return new ContribuidorDTO(
-                salvoContribuidor.getNome(),
-                salvoContribuidor.getEmail(),
-                salvoContribuidor.getLinkGithub()
+                contribuidor.getId(),
+                contribuidor.getNome(),
+                contribuidor.getEmail(),
+                contribuidor.getLinkGithub()
         );
     }
+
 }
