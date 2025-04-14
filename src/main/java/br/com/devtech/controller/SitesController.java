@@ -34,7 +34,7 @@ public class SitesController {
         return ResponseEntity.ok().body(dtos);
     }
 
-    @PutMapping(value = "//alterar/{id}")
+    @PutMapping(value = "/alterar/{id}")
     public ResponseEntity<SitesDTO> alterarSite (@PathVariable Long id, @RequestBody SitesDTO dtoSite){
         SitesDTO dto = sitesServices.updateSites(id, dtoSite);
         return ResponseEntity.ok().body(dto);
