@@ -18,6 +18,8 @@ public class ContribuidorController {
     @PostMapping(value = "/create")
     public ResponseEntity<ContribuidorDTO> create(@RequestBody ContribuidorDTO dto){
 
+        System.out.println(dto.toString());
+
         dto = contribuidorService.create(dto);
         return ResponseEntity.ok().body(dto);
 

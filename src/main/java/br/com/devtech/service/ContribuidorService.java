@@ -19,7 +19,7 @@ public class ContribuidorService {
         ContribuidorEntity contribuidor = new ContribuidorEntity();
         contribuidor.setNome(dtoRequest.nome());
         contribuidor.setEmail(dtoRequest.email());
-        contribuidor.setLinkGithub(dtoRequest.github());
+        contribuidor.setLinkGithub(dtoRequest.githubLink());
 
         ContribuidorEntity salvo = contribuidorRepository.save(contribuidor);
         return new ContribuidorDTO(
@@ -36,7 +36,7 @@ public class ContribuidorService {
 
         contribuidor.setNome(dtoRequest.nome());
         contribuidor.setEmail(dtoRequest.email());
-        contribuidor.setLinkGithub(dtoRequest.github());
+        contribuidor.setLinkGithub(dtoRequest.githubLink());
 
         ContribuidorEntity salvo = contribuidorRepository.save(contribuidor);
         return new ContribuidorDTO(
