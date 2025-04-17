@@ -6,7 +6,6 @@
 
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
-
 </p>
 
 ![java][JAVA_BADGE]
@@ -33,7 +32,7 @@
     - Spring Validation
 - **Flyway** (Migration)
 - **Swagger/OpenAPI** (Documentação)
-- **Lombok**
+- **Lombok** (Gera automaticamente código repetitivo)
 - **PostgreSQL** (Banco de dados)
 - **Maven** (Gerenciamento de dependências)
 
@@ -73,10 +72,10 @@ src/
 
 ## Usando Docker Compose
 
-1. Clone o repositório: 'git clone https://github.com/MarcioCosta013/DevTechBlog-API.git'
-2. Acesse o diretório do projeto: 'cd DevTechBlog-API'
-3. Execute o comando: 'docker-compose up'
-4. Acesse o Swagger: 'http://localhost:8080/swagger-ui.html'
+1. Clone o repositório: `git clone https://github.com/MarcioCosta013/DevTechBlog-API.git`
+2. Acesse o diretório do projeto: `cd DevTechBlog-API`
+3. Execute o comando: `docker-compose up`
+4. Acesse o Swagger: `http://localhost:8080/swagger-ui.html`
 
 ### Parâmetros de Configuração
 
@@ -193,10 +192,10 @@ src/
 
 ## Using Docker Compose
 
-1. Clone the repository: 'git clone https://github.com/MarcioCosta013/DevTechBlog-API.git'
-Access the project directory: 'cd DevTechBlog-API'
-Run the command: 'docker-compose up'
-Access Swagger: 'http://localhost:8080/swagger-ui.html'
+1. Clone the repository: `git clone https://github.com/MarcioCosta013/DevTechBlog-API.git`
+Access the project directory: `cd DevTechBlog-API`
+Run the command: `docker-compose up`
+Access Swagger: `http://localhost:8080/swagger-ui.html`
 
 ### Configuration Parameters
 
