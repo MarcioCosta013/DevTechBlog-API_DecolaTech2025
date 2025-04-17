@@ -91,8 +91,8 @@ src/
 
 ### Observações
 
-> Certifique-se de que o Docker esteja instalado e configurado corretamente no seu sistema.
-Certifique-se de que o banco de dados esteja configurado corretamente e que as variáveis de ambiente estejam definidas.
+> - Certifique-se de que o Docker esteja instalado e configurado corretamente no seu sistema.
+> - Certifique-se de que o banco de dados esteja configurado corretamente e que as variáveis de ambiente estejam definidas. 
 
 
 ## Documentação da API
@@ -193,9 +193,9 @@ src/
 ## Using Docker Compose
 
 1. Clone the repository: `git clone https://github.com/MarcioCosta013/DevTechBlog-API.git`
-Access the project directory: `cd DevTechBlog-API`
-Run the command: `docker-compose up`
-Access Swagger: `http://localhost:8080/swagger-ui.html`
+2. Access the project directory: `cd DevTechBlog-API`
+3. Run the command: `docker-compose up`
+4. Access Swagger: `http://localhost:8080/swagger-ui.html`
 
 ### Configuration Parameters
 
@@ -211,8 +211,8 @@ Access Swagger: `http://localhost:8080/swagger-ui.html`
 
 ### Notes
 
-> Make sure Docker is installed and configured correctly on your system.
-Make sure the database is configured correctly and that environment variables are defined.
+> - Make sure Docker is installed and configured correctly on your system.
+> - Make sure the database is configured correctly and that environment variables are defined.
 
 ## API Documentation
 
