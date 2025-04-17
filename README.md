@@ -11,3 +11,48 @@
 <p align="center">
   <b>Backend do site de pedidos...</b>
 </p>
+
+<h3> ✨ Funcionalidades </h3>
+
+- **CRUD de Contribuidor** : Criar, ler, atualizar e excluir Contribuidores
+- **CRUD de Sites**: Criar, ler, atualizar e excluir Sites
+- **Relacionamento entre Entidades**: Sites vinculados a um Contribuidor que o compartilhou... (Many-to-One)
+
+<h3> 🛠️ Tecnologias </h3>
+
+- **Java 21**
+- **Spring Boot 3**
+    - Spring Data JPA
+    - Spring Validation
+- **Flyway** (Migration)
+- **Swagger/OpenAPI** (Documentação)
+- **Lombok**
+- **PostgreSQL** (Banco de dados)
+- **Maven** (Gerenciamento de dependências)
+
+
+<h3> 📂 Estrutura do Projeto </h3>
+
+````
+src/
+├── main/
+│ ├── java/
+│ │ └── com/
+│ │ ├── devtechblog/
+│ │ │ ├── config/ # Configurações (CorsConfig, SwaggerConfig)
+│ │ │ ├── controller/ # Controladores (ContribuidorController, SitesController)
+│ │ │ ├── dtos/ # Classes Records DTOs (ContribuidorDTO, SitesDTO)
+│ │ │ ├── entity/ # Entidades JPA (ContribuidorEntity, SiteEntity)
+│ │ │ ├── exception/ #Excesão personalisada (NotFoundException)
+│ │ │ ├── repository/ # Repositórios Spring Data (ContribuidorRepository, TemaRepository)
+│ │ │ └── service/ # Lógica de negócio (ContribuidorService, SiteService)
+│ │ └── 
+│ ├── resources/
+│ │ ├── db.migration/
+│ │ │ ├── V202504051704__create_tecle_contribuidor.sql
+│ │ │ └── V202504051714__create_table_sites.sql
+│ │ ├── application.yml
+│ │ └── application-dev.yml
+└── 
+````
+
