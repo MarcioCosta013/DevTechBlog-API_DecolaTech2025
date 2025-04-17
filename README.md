@@ -71,6 +71,31 @@ src/
 3. Execute o projeto: `mvn spring-boot:run`
 4. Acesse o Swagger: `http://localhost:8080/swagger-ui.html`
 
+## Usando Docker Compose
+
+1. Clone o repositório: 'git clone https://github.com/MarcioCosta013/DevTechBlog-API.git'
+2. Acesse o diretório do projeto: 'cd DevTechBlog-API'
+3. Execute o comando: 'docker-compose up'
+4. Acesse o Swagger: 'http://localhost:8080/swagger-ui.html'
+
+### Parâmetros de Configuração
+
+- DB_URL: URL do banco de dados
+- DB_USER: Usuário do banco de dados
+- DB_PASSWORD: Senha do banco de dados
+- SPRING_PROFILES_ACTIVE: Perfil ativo do Spring
+
+#### Exemplo de Uso
+
+- Para executar o projeto com Docker, use o comando: docker run -p 8080:8080 devtechblog-api
+- Para executar o projeto com Docker Compose, use o comando: docker-compose up
+
+### Observações
+
+> Certifique-se de que o Docker esteja instalado e configurado corretamente no seu sistema.
+Certifique-se de que o banco de dados esteja configurado corretamente e que as variáveis de ambiente estejam definidas.
+
+
 ## Documentação da API
 
 - Swagger/OpenAPI: `http://localhost:8080/swagger-ui.html`
@@ -165,6 +190,30 @@ src/
 2. Install the dependencies: `mvn clean install`
 3. Run the project: `mvn spring-boot:run`
 4. Access Swagger: `http://localhost:8080/swagger-ui.html`
+
+## Using Docker Compose
+
+1. Clone the repository: 'git clone https://github.com/MarcioCosta013/DevTechBlog-API.git'
+Access the project directory: 'cd DevTechBlog-API'
+Run the command: 'docker-compose up'
+Access Swagger: 'http://localhost:8080/swagger-ui.html'
+
+### Configuration Parameters
+
+- DB_URL: Database URL
+- DB_USER: Database user
+- DB_PASSWORD: Database password
+- SPRING_PROFILES_ACTIVE: Active Spring profile
+
+#### Example Usage
+
+- To run the project with Docker, use the command: docker run -p 8080:8080 devtechblog-api
+- To run the project with Docker Compose, use the command: docker-compose up
+
+### Notes
+
+> Make sure Docker is installed and configured correctly on your system.
+Make sure the database is configured correctly and that environment variables are defined.
 
 ## API Documentation
 
