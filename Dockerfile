@@ -20,4 +20,4 @@ COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
 # Comando para iniciar a aplicação
-ENTRYPOINT ["java", "-Dfile.encoding=UTF-8", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=default", "-Dfile.encoding=UTF-8", "-jar", "app.jar"]
